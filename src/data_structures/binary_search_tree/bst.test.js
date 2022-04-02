@@ -72,23 +72,23 @@ describe("binary_search_tree", () => {
     const ancestor = lca(root, 98, 72);
     const ancestor1 = lca(root, 89, 72);
     const ancestor2 = lca(root, 89, 12);
-    expect(ancestor?.value).toBe(89)
-    expect(ancestor1?.value).toBe(89)
-    expect(ancestor2?.value).toBe(24)
+    expect(ancestor?.value).toBe(89);
+    expect(ancestor1?.value).toBe(89);
+    expect(ancestor2?.value).toBe(24);
   });
 
   it("#remove - should remove a node from the tree", () => {
-    expect(search(root, 98)).not.toBeNull()
+    expect(search(root, 98)).not.toBeNull();
     const newRoot = remove(root, 98);
-    expect(search(root, 98)).toBeNull()
-    expect(search(newRoot, 98)).toBeNull()
+    expect(search(root, 98)).toBeNull();
+    expect(search(newRoot, 98)).toBeNull();
 
-    expect(search(root, 24)).not.toBeNull()
-    const newRoot2 = remove(root, 24)
-    expect(search(root, 24)).toBeNull()
-    expect(search(newRoot2, 24)).toBeNull()
+    expect(search(root, 24)).not.toBeNull();
+    const newRoot2 = remove(root, 24);
+    expect(search(root, 24)).toBeNull();
+    expect(search(newRoot2, 24)).toBeNull();
 
-    expect(newRoot).toBe(root)
-    expect(root).toBe(newRoot2)
+    expect(newRoot).toBe(root);
+    expect(root).toBe(newRoot2);
   });
 });
