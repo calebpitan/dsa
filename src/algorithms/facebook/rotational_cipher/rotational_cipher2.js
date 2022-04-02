@@ -36,7 +36,7 @@ const isAlpha = (char, code = char.toLowerCase().charCodeAt(0)) =>
 const isNum = (char, code = char.charCodeAt(0)) =>
   clamp(code, n_start, n_end) === code;
 
-  /**
+/**
  * Compute the resultant character from rotating a alpha `char` by the given `factor`
  * @param {string} char The character to rotate by a factor
  * @param {number} factor The factor by which to rotate a character

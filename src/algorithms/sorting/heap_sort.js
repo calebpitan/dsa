@@ -1,4 +1,4 @@
-import { heapify, siftdown, size } from "../../data_structures/heap/max_heap";
+import { heapify, siftdown, size } from "../../data_structures/heap/max_heap.js";
 
 /**
  * Sort an array of numbers using heap sort in `O(n log(n))`

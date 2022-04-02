@@ -6,12 +6,16 @@ Given a string and a rotation factor, return an encrypted string.
 
 ## Signature
 
+```php
 string rotationalCipher(string input, int rotationFactor)
+```
 
 ## Input
 
+```txt
 1 <= |input| <= 1,000,000
 0 <= rotationFactor <= 1,000,000
+```
 
 ## Output
 
@@ -19,12 +23,16 @@ Return the result of rotating input a number of times equal to rotationFactor.
 
 ## Example 1
 
+```txt
 input = Zebra-493?
 rotationFactor = 3
 output = Cheud-726?
+```
 
 ## Example 2
 
+```txt
 input = abcdefghijklmNOPQRSTUVWXYZ0123456789
 rotationFactor = 39
 output = nopqrstuvwxyzABCDEFGHIJKLM9012345678
+```

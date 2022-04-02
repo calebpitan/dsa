@@ -4,17 +4,13 @@ class Node {
    * @param value {number} The value that was inserted with this node
    */
   constructor(value) {
-    /**
-     * @type {?Node}
-     */
+    /** @type {?Node} */
     this.left = null;
-    /**
-     * @type {?Node}
-     */
+
+    /** @type {?Node} */
     this.right = null;
-    /**
-     * @type {number}
-     */
+
+    /** @type {number} */
     this.value = value;
   }
 }
