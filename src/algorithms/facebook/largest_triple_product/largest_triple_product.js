@@ -2,7 +2,7 @@ import {
   heapify,
   insert,
   remove,
-} from "../../../data_structures/heap/max_heap";
+} from "../../../data_structures/heap/max_heap.js";
 
 /**
  * Find the largest triple products of each subarray of array `arr` that

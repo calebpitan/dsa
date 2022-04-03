@@ -40,3 +40,11 @@ output = [-1, -1, 4, 4, 8]
 ```
 
 The 3rd element of output is `2*2*1 = 4`, the 4th is `2*2*1 = 4`, and the 5th is `2*2*2 = 8`.
+
+## Tags
+
+Facebook
+
+## Other Solutions
+
+https://www.geeksforgeeks.org/largest-triplet-product-stream/
