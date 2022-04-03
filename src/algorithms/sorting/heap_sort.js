@@ -10,8 +10,7 @@ function heapsort(arr) {
 
   while (end > 0) {
     [arr[end], arr[0]] = [arr[0], arr[end]];
-    end--;
-    siftdown(arr, 0, end);
+    siftdown(arr, 0, --end);
   }
 }
 
