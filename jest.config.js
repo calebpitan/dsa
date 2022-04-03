@@ -3,7 +3,7 @@ export default {
   rootDir: "src",
   testRegex: ".*\\.test\\.js$",
   transform: {},
-  collectCoverageFrom: ["src/**/*.js"],
-  coverageDirectory: "./.coverage",
+  collectCoverageFrom: ["*/**/*.js"],
+  coverageDirectory: "../.coverage",
   testEnvironment: "node",
 };
