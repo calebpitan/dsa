@@ -15,11 +15,14 @@ function maxCandies(arr, k) {
   let output = 0;
 
   // O(n)
+  // A better solution might be to heapify in O(n) rather
+  // than enqueueing in a total of O(n log n)
   for (let i = 0; i < arr.length; i++) {
     pq.enqueue(arr[i]); // O(log n)
   }
 
   // O(k)
+  // resultant complexity: O(k log n)
   while (k > 0) {
     const candy = pq.dequeue(); // O(log n)
     pq.enqueue(Math.floor(candy / 2)); // O(log n)

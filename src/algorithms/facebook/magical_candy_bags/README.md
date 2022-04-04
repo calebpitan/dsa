@@ -44,3 +44,7 @@ In total you can eat `7 + 4 + 3 = 14` pieces of candy.
 ## Tags
 
 Facebook
+
+## Other Solutions
+
+https://leetcode.com/discuss/interview-question/1184501/facebook-recruiting-portal-magical-candy-bags
