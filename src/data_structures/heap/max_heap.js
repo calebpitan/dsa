@@ -1,6 +1,6 @@
 /**
  * @template T
- * @typedef {T[]} Heap<T>
+ * @typedef {T[]} MaxHeap<T>
  */
 
 /**
@@ -15,7 +15,7 @@ function heapify(arr, start = Math.floor(size(arr) / 2 - 1)) {
 
 /**
  * Insert a new data into the heap
- * @param {Heap<number>} heap The heap structure to insert into
+ * @param {MaxHeap<number>} heap The heap structure to insert into
  * @param {number} data The data to insert into the heap
  */
 function insert(heap, data) {
@@ -25,11 +25,11 @@ function insert(heap, data) {
 
 /**
  * Remove a node at the specified position `node`
- * @param {Heap<number>} heap The heap structure
- * @param {number} node The node position to remove from the heap
+ * @param {MaxHeap<number>} heap The heap structure
+ * @param {number=} node The node position to remove from the heap
  * @returns {number}
  */
-function remove(heap, node) {
+function remove(heap, node = 0) {
   const parent = (node - 1) >> 1;
   const left = (node << 1) + 1;
   const right = (node << 1) + 2;
@@ -55,7 +55,7 @@ function remove(heap, node) {
 
 /**
  * Sifts up the node in the heap at a given position `node`
- * @param {Heap<number>} heap The heap structure
+ * @param {MaxHeap<number>} heap The heap structure
  * @param {number} node The start node position or index
  */
 function siftup(heap, node) {
@@ -70,7 +70,7 @@ function siftup(heap, node) {
 
 /**
  * Sifts down the node in the heap at a given position `node`
- * @param {Heap<number>} heap The heap structure
+ * @param {MaxHeap<number>} heap The heap structure
  * @param {number} start The start node position or index
  */
 function siftdown(heap, start, end = size(heap) - 1) {
@@ -95,7 +95,7 @@ function siftdown(heap, start, end = size(heap) - 1) {
 
 /**
  * Removes and returns the maximum value in the heap
- * @param {Heap<number>} heap The heap data structure
+ * @param {MaxHeap<number>} heap The heap data structure
  * @returns {number}
  */
 function extract_max(heap) {
@@ -104,7 +104,7 @@ function extract_max(heap) {
 
 /**
  * Returns the maximum value in the heap
- * @param {Heap<number>} heap The heap data structure
+ * @param {MaxHeap<number>} heap The heap data structure
  * @returns {number}
  */
 function max(heap) {
@@ -113,7 +113,7 @@ function max(heap) {
 
 /**
  * Returns the height of the heap
- * @param {Heap<number>} heap The heap data structure
+ * @param {MaxHeap<number>} heap The heap data structure
  * @returns {number}
  */
 function height(heap) {
@@ -122,7 +122,7 @@ function height(heap) {
 
 /**
  * Returns the size of the heap
- * @param {Heap<number>} heap The heap data structure
+ * @param {MaxHeap<number>} heap The heap data structure
  * @returns {number}
  */
 function size(heap) {

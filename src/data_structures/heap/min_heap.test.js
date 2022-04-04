@@ -1,7 +1,7 @@
 import { extract_min, heapify, height, insert, min, size } from "./min_heap.js";
 
 describe("min_heap", () => {
-  /** @type {import("./max_heap.js").Heap<number>} */
+  /** @type {import("./max_heap.js").MaxHeap<number>} */
   let heap = [];
   /** @type {number[]} */
   let arr = [];
