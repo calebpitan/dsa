@@ -10,6 +10,7 @@ import {
   level_order,
   remove,
 } from "./bst.js";
+import { jest } from "@jest/globals";
 
 describe("binary_search_tree", () => {
   /**
@@ -79,16 +80,78 @@ describe("binary_search_tree", () => {
 
   it("#remove - should remove a node from the tree", () => {
     expect(search(root, 98)).not.toBeNull();
-    const newRoot = remove(root, 98);
+    remove(root, 98);
     expect(search(root, 98)).toBeNull();
-    expect(search(newRoot, 98)).toBeNull();
 
     expect(search(root, 24)).not.toBeNull();
-    const newRoot2 = remove(root, 24);
+    remove(root, 24);
     expect(search(root, 24)).toBeNull();
-    expect(search(newRoot2, 24)).toBeNull();
 
-    expect(newRoot).toBe(root);
-    expect(root).toBe(newRoot2);
+    expect(search(root, 145)).not.toBeNull();
+    remove(root, 145);
+    expect(search(root, 145)).toBeNull();
+  });
+
+  describe("Traversal", () => {
+    /**
+     * @type {import("jest-mock").SpyInstance<void, [message?: any, ...optionalParams: any[]]>}
+     */
+    let log;
+    beforeEach(() => {
+      log = jest.spyOn(console, "log").mockImplementation(() => {});
+    });
+
+    afterEach(() => {
+      log.mockReset();
+      log.mockRestore();
+    });
+
+    it("#inorder - should print all nodes in sorted order", () => {
+      const inordered = data.slice().sort((a, b) => a - b);
+
+      inorder(root);
+
+      expect(log).toHaveBeenCalledTimes(data.length);
+
+      inordered.forEach((arg, i) =>
+        expect(log).toHaveBeenNthCalledWith(i + 1, arg)
+      );
+    });
+
+    it("#preorder - should print all root nodes first, then left nodes, then right nodes", () => {
+      const preordered = [24, 12, 1, 0, 12, 12, 35, 46, 35, 89, 72, 145, 98];
+
+      preorder(root);
+
+      expect(log).toHaveBeenCalledTimes(data.length);
+
+      preordered.forEach((arg, i) => {
+        expect(log).toHaveBeenNthCalledWith(i + 1, arg);
+      });
+    });
+
+    it("#postorder - should print all left nodes first, then right nodes, then root nodes", () => {
+      const postordered = [0, 1, 12, 12, 12, 35, 72, 98, 145, 89, 46, 35, 24];
+
+      postorder(root);
+
+      expect(log).toHaveBeenCalledTimes(data.length);
+
+      postordered.forEach((arg, i) => {
+        expect(log).toHaveBeenNthCalledWith(i + 1, arg);
+      });
+    });
+
+    it("#level_order - should print all nodes one level after the other", () => {
+      const level_ordered = [24, 12, 35, 1, 12, 46, 0, 12, 35, 89, 72, 145, 98];
+
+      level_order(root);
+
+      expect(log).toHaveBeenCalledTimes(data.length);
+
+      level_ordered.forEach((arg, i) => {
+        expect(log).toHaveBeenNthCalledWith(i + 1, arg);
+      });
+    });
   });
 });
