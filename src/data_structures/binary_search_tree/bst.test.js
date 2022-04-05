@@ -1,3 +1,4 @@
+import { jest } from "@jest/globals";
 import {
   Node,
   insert,
@@ -10,7 +11,6 @@ import {
   level_order,
   remove,
 } from "./bst.js";
-import { jest } from "@jest/globals";
 
 describe("binary_search_tree", () => {
   /**

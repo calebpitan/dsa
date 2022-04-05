@@ -1,4 +1,4 @@
-import { maxCandies } from "./magical_candy_bags";
+import { maxCandies } from "./magical_candy_bags.js";
 
 describe("magical_candy_bags", () => {
   let k_1 = 3;

@@ -5,7 +5,7 @@ import {
   insert,
   min,
   size,
-} from "./min_heap_queue";
+} from "./min_heap_queue.js";
 
 describe("min_heap_queue", () => {
   /** @type {import("./min_heap_queue.js").MinHeapQueue<number, string>} */

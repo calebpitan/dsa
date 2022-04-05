@@ -1,5 +1,4 @@
 import { heapify, insert, remove } from "../../../data_structures/heap/max_heap.js";
-import { PriorityQueue } from "../../../data_structures/priority_queue/priority_queue.js";
 
 /**
  * Count the maximum amount of candy that can be eaten from `n` bags of candies

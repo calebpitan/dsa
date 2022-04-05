@@ -1,4 +1,4 @@
-import { PriorityQueue } from "../../data_structures/priority_queue/priority_queue";
+import { PriorityQueue } from "../../data_structures/priority_queue/priority_queue.js";
 
 /**
  * A LinkedList Node type

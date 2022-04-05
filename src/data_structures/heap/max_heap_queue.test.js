@@ -5,7 +5,7 @@ import {
   insert,
   max,
   size,
-} from "./max_heap_queue";
+} from "./max_heap_queue.js";
 
 describe("max_heap_queue", () => {
   /** @type {import("./max_heap_queue.js").MaxHeapQueue<number, string>} */

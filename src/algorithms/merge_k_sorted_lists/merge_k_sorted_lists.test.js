@@ -1,4 +1,4 @@
-import { ListNode, mergeKLists } from "./merge_k_sorted_lists";
+import { ListNode, mergeKLists } from "./merge_k_sorted_lists.js";
 
 describe("merge_k_sorted_lists", () => {
   const data = [
