@@ -5,23 +5,23 @@ describe("priority_queue", () => {
     it("#is_empty - should return true when a queue is empty and false when not", () => {
       const pq = new PriorityQueue();
 
-      expect(pq.is_empty()).toBe(true);
+      expect(pq.empty()).toBe(true);
 
       pq.enqueue(15);
 
-      expect(pq.is_empty()).toBe(false);
+      expect(pq.empty()).toBe(false);
     });
 
-    it("#empty - should empty the queue", () => {
+    it("#clear - should clear the queue", () => {
       const pq = new PriorityQueue();
 
       pq.enqueue(15);
 
-      expect(pq.is_empty()).toBe(false);
+      expect(pq.empty()).toBe(false);
 
-      pq.empty();
+      pq.clear();
 
-      expect(pq.is_empty()).toBe(true);
+      expect(pq.empty()).toBe(true);
     });
   });
 
@@ -29,31 +29,60 @@ describe("priority_queue", () => {
     it("#enqueue - should put a new priority value in the queue", () => {
       const pq = new PriorityQueue();
 
-      expect(pq.is_empty()).toBe(true);
+      expect(pq.empty()).toBe(true);
 
-      pq.enqueue(10);
       pq.enqueue(24);
+      pq.enqueue(10);
       pq.enqueue(76);
 
-      expect(pq.is_empty()).toBe(false);
+      expect(pq.empty()).toBe(false);
     });
 
     it("#dequeue - should get the highest priority value from the queue", () => {
       const pq = new PriorityQueue();
 
-      expect(pq.is_empty()).toBe(true);
+      expect(pq.empty()).toBe(true);
 
       pq.enqueue(10);
-      pq.enqueue(24);
       pq.enqueue(76);
+      pq.enqueue(24);
 
-      expect(pq.is_empty()).toBe(false);
+      expect(pq.empty()).toBe(false);
 
       expect(pq.dequeue()).toBe(76);
       expect(pq.dequeue()).toBe(24);
       expect(pq.dequeue()).toBe(10);
 
-      expect(pq.is_empty()).toBe(true);
+      expect(pq.empty()).toBe(true);
+    });
+
+    it("#peek - takes a look at the element at the root of the heap or rear of the queue", () => {
+      const pq = new PriorityQueue();
+
+      expect(pq.empty()).toBe(true);
+
+      pq.enqueue(24);
+      pq.enqueue(76);
+      pq.enqueue(10);
+
+      expect(pq.empty()).toBe(false);
+
+      expect(pq.peek()).toBe(76);
+      expect(pq.peek()).toBe(76);
+
+      expect(pq.empty()).toBe(false);
+    });
+
+    it("#enqueue, #dequeue - should enqueue and dequeue key-value pairs", () => {
+      const pq = new PriorityQueue();
+
+      pq.enqueue(24, "John");
+      pq.enqueue(10, "Justina");
+      pq.enqueue(76, "Kyrie");
+
+      expect(pq.dequeue()).toMatchObject([76, "Kyrie"]);
+      expect(pq.dequeue()).toMatchObject([24, "John"]);
+      expect(pq.dequeue()).toMatchObject([10, "Justina"]);
     });
   });
 
@@ -61,31 +90,60 @@ describe("priority_queue", () => {
     it("#enqueue - should put a new priority value in the queue", () => {
       const pq = new PriorityQueue(PriorityQueue.MIN);
 
-      expect(pq.is_empty()).toBe(true);
+      expect(pq.empty()).toBe(true);
 
+      pq.enqueue(76);
       pq.enqueue(10);
       pq.enqueue(24);
-      pq.enqueue(76);
 
-      expect(pq.is_empty()).toBe(false);
+      expect(pq.empty()).toBe(false);
     });
 
     it("#dequeue - should get the highest priority value from the queue", () => {
       const pq = new PriorityQueue(PriorityQueue.MIN);
 
-      expect(pq.is_empty()).toBe(true);
+      expect(pq.empty()).toBe(true);
 
-      pq.enqueue(10);
       pq.enqueue(24);
       pq.enqueue(76);
+      pq.enqueue(10);
 
-      expect(pq.is_empty()).toBe(false);
+      expect(pq.empty()).toBe(false);
 
       expect(pq.dequeue()).toBe(10);
       expect(pq.dequeue()).toBe(24);
       expect(pq.dequeue()).toBe(76);
 
-      expect(pq.is_empty()).toBe(true);
+      expect(pq.empty()).toBe(true);
+    });
+
+    it("#peek - takes a look at the element at the root of the heap or rear of the queue", () => {
+      const pq = new PriorityQueue(PriorityQueue.MIN);
+
+      expect(pq.empty()).toBe(true);
+
+      pq.enqueue(24);
+      pq.enqueue(76);
+      pq.enqueue(10);
+
+      expect(pq.empty()).toBe(false);
+
+      expect(pq.peek()).toBe(10);
+      expect(pq.peek()).toBe(10);
+
+      expect(pq.empty()).toBe(false);
+    });
+
+    it("#enqueue, #dequeue - should enqueue and dequeue key-value pairs", () => {
+      const pq = new PriorityQueue(PriorityQueue.MIN);
+
+      pq.enqueue(24, "John");
+      pq.enqueue(10, "Justina");
+      pq.enqueue(76, "Kyrie");
+
+      expect(pq.dequeue()).toMatchObject([10, "Justina"]);
+      expect(pq.dequeue()).toMatchObject([24, "John"]);
+      expect(pq.dequeue()).toMatchObject([76, "Kyrie"]);
     });
   });
 });
