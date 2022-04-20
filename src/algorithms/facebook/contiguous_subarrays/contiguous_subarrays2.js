@@ -36,10 +36,8 @@ function countSubarrays(arr) {
 
   for (let i = arr.length - 1; i >= 0; i--) {
     while (stack.length !== 0 && arr[peek(stack)] < arr[i]) {
-      let index = stack.pop();
-      // @ts-ignore
-      result[i] += temp[index];
-      // @ts-ignore
+      let index = stack.pop(); // @ts-ignore
+      result[i] += temp[index]; // @ts-ignore
       temp[i] += temp[index];
     }
     stack.push(i);
