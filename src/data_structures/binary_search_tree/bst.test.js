@@ -28,7 +28,7 @@ describe("binary_search_tree", () => {
    *                   /
    *                  98
    *```
-   * @type {?Node}
+   * @type {?Node<number>}
    */
   let root = null;
   const data = [24, 35, 46, 89, 12, 72, 145, 12, 35, 98, 12, 1, 0];

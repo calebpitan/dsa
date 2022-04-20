@@ -1,25 +1,27 @@
+/** @template T */
 class Node {
   /**
    * A tree's node representation
-   * @param value {number} The value that was inserted with this node
+   * @param {T} value The value that was inserted with this node
    */
   constructor(value) {
-    /** @type {?Node} */
+    /** @type {?Node<T>} */
     this.left = null;
 
-    /** @type {?Node} */
+    /** @type {?Node<T>} */
     this.right = null;
 
-    /** @type {number} */
+    /** @type {T} */
     this.value = value;
   }
 }
 
 /**
  * Insert a new node into the tree's root node
- * @param {?Node} root The root node to insert the new node into
- * @param {number} value The value to wrap in a new node and insert
- * @returns {Node}
+ * @template T
+ * @param {?Node<T>} root The root node to insert the new node into
+ * @param {T} value The value to wrap in a new node and insert
+ * @returns {Node<T>}
  */
 function insert(root, value) {
   if (!root) return new Node(value);
@@ -33,9 +35,10 @@ function insert(root, value) {
 
 /**
  * Delete a node with value from the tree
- * @param {?Node} root The root node to insert the new node into
- * @param {number} value The value to wrap in a new node and insert
- * @returns {?Node}
+ * @template T
+ * @param {?Node<T>} root The root node to insert the new node into
+ * @param {T} value The value to wrap in a new node and insert
+ * @returns {?Node<T>}
  */
 function remove(root, value) {
   if (!root) return root;
@@ -65,8 +68,9 @@ function remove(root, value) {
 
 /**
  * Find the node with the minimum value
- * @param {Node} root The root node to insert the new node into
- * @returns {Node}
+ * @template T
+ * @param {Node<T>} root The root node to insert the new node into
+ * @returns {Node<T>}
  */
 function min_value_node(root) {
   let current = root;
@@ -78,9 +82,10 @@ function min_value_node(root) {
 
 /**
  * A depth-first search that searches the tree for a value starting from the root node
- * @param {?Node} root The root node to insert the new node into
- * @param {number} value The value to search for
- * @returns {?Node}
+ * @template T
+ * @param {?Node<T>} root The root node to insert the new node into
+ * @param {T} value The value to search for
+ * @returns {?Node<T>}
  */
 function search(root, value) {
   if (!root) return null;
@@ -94,7 +99,8 @@ function search(root, value) {
 
 /**
  * Prints values from the tree in a depth-first in-order fashion
- * @param {?Node} root The root node
+ * @template T
+ * @param {?Node<T>} root The root node
  * @returns {void}
  */
 function inorder(root) {
@@ -106,7 +112,8 @@ function inorder(root) {
 
 /**
  * Prints values from the tree in a depth-first pre-order fashion
- * @param {?Node} root The root node
+ * @template T
+ * @param {?Node<T>} root The root node
  * @returns {void}
  */
 function preorder(root) {
@@ -118,7 +125,8 @@ function preorder(root) {
 
 /**
  * Prints values from the tree in a depth-first post-order fashion
- * @param {?Node} root The root node
+ * @template T
+ * @param {?Node<T>} root The root node
  * @returns {void}
  */
 function postorder(root) {
@@ -130,12 +138,13 @@ function postorder(root) {
 
 /**
  * Prints values from the tree in a breadth-first level-order fashion
- * @param {?Node} root The root node
+ * @template T
+ * @param {?Node<T>} root The root node
  * @returns {void}
  */
 function level_order(root) {
   /**
-   * @param {?Node} root The root node
+   * @param {?Node<T>} root The root node
    * @param {number} level The root node
    */
   const explore = (root, level) => {
@@ -155,10 +164,11 @@ function level_order(root) {
 
 /**
  * Finds the lowest common ancestor of two nodes from the root of the tree
- * @param {?Node} root The root node
- * @param {number} n1 One of the pairs whose lowest common ancestor we are looking for
- * @param {number} n2 One of the pairs whose lowest common ancestor we are looking for
- * @returns {?Node}
+ * @template T
+ * @param {?Node<T>} root The root node
+ * @param {T} n1 One of the pairs whose lowest common ancestor we are looking for
+ * @param {T} n2 One of the pairs whose lowest common ancestor we are looking for
+ * @returns {?Node<T>}
  */
 function lca(root, n1, n2) {
   if (!root) return null;
@@ -169,7 +179,8 @@ function lca(root, n1, n2) {
 
 /**
  * Computes the maximum height of a tree
- * @param {?Node} root The root node
+ * @template T
+ * @param {?Node<T>} root The root node
  * @returns {number}
  */
 function height(root) {
