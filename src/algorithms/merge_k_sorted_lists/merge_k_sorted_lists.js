@@ -1,5 +1,5 @@
-import { PriorityQueue } from "../../data_structures/priority_queue/priority_queue.js";
 import { ListNode } from "../../data_structures/lists/linked_list.js";
+import { PriorityQueue } from "../../data_structures/priority_queue/priority_queue.js";
 
 /**
  * Merge an array of sorted linked list into a single sorted linked list
