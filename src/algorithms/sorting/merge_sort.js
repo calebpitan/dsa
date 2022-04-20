@@ -1,7 +1,8 @@
 /**
  * Sort an array using the merge sort divide-and-conquer algorithm
- * @param {number[]} arr The array to be sorted
- * @returns {number[]}
+ * @template {string | number} T
+ * @param {T[]} arr The array to be sorted
+ * @returns {T[]}
  */
 function mergesort(arr) {
   const mid = Math.floor(arr.length / 2);
@@ -13,10 +14,13 @@ function mergesort(arr) {
 
 /**
  * Merge both sides of the array in an orderly manner
- * @param {number[]} left The left array to be merged with the right
- * @param {number[]} right The right array to be merged with the left
+ * @template {string | number} T
+ * @param {T[]} left The left array to be merged with the right
+ * @param {T[]} right The right array to be merged with the left
+ * @returns {T[]}
  */
 function merge(left, right) {
+  /** @type T[] */
   const sorted = [];
   let [l, r] = [0, 0];
 
