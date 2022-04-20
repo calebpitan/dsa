@@ -10,8 +10,8 @@
 
 /**
  * Build a heap out of a collection of tuples
- * @template V
- * @param {Tuple<number, V>[]} collection An array of key-value pairs mapped with tuples
+ * @template K, V
+ * @param {Tuple<K, V>[]} collection An array of key-value pairs mapped with tuples
  * @param {number=} start The start position
  */
 function heapify(collection, start = Math.floor(collection.length / 2 - 1)) {
@@ -22,9 +22,9 @@ function heapify(collection, start = Math.floor(collection.length / 2 - 1)) {
 
 /**
  * Insert a new data into the heap
- * @template V
- * @param {MaxHeapQueue<number, V>} heap The heap structure to insert into
- * @param {number} key The key to use to insert value into the heap
+ * @template K, V
+ * @param {MaxHeapQueue<K, V>} heap The heap structure to insert into
+ * @param {K} key The key to use to insert value into the heap
  * @param {V} value The value to insert into the heap
  */
 function insert(heap, key, value) {
@@ -34,10 +34,10 @@ function insert(heap, key, value) {
 
 /**
  * Remove a node at the specified position `node`
- * @template V
- * @param {MaxHeapQueue<number, V>} heap The heap structure
+ * @template K, V
+ * @param {MaxHeapQueue<K, V>} heap The heap structure
  * @param {number=} node The node position to remove from the heap
- * @returns {Tuple<number, V>}
+ * @returns {Tuple<K, V>}
  */
 function remove(heap, node = 0) {
   const parent = (node - 1) >> 1;
@@ -67,8 +67,8 @@ function remove(heap, node = 0) {
 
 /**
  * Sifts up the node in the heap at a given position `node`
- * @template V
- * @param {MaxHeapQueue<number, V>} heap The heap structure
+ * @template K, V
+ * @param {MaxHeapQueue<K, V>} heap The heap structure
  * @param {number} node The start node position or index
  */
 function siftup(heap, node) {
@@ -83,8 +83,8 @@ function siftup(heap, node) {
 
 /**
  * Sifts down the node in the heap at a given position `node`
- * @template V
- * @param {MaxHeapQueue<number, V>} heap The heap structure
+ * @template K, V
+ * @param {MaxHeapQueue<K, V>} heap The heap structure
  * @param {number} start The start node position or index
  */
 function siftdown(heap, start, end = size(heap) - 1) {
@@ -109,9 +109,9 @@ function siftdown(heap, start, end = size(heap) - 1) {
 
 /**
  * Removes and returns the maximum value in the heap
- * @template V
- * @param {MaxHeapQueue<number, V>} heap The heap data structure
- * @returns {Tuple<number, V>}
+ * @template K, V
+ * @param {MaxHeapQueue<K, V>} heap The heap data structure
+ * @returns {Tuple<K, V>}
  */
 function extract_max(heap) {
   return remove(heap, 0);
@@ -119,9 +119,9 @@ function extract_max(heap) {
 
 /**
  * Returns the maximum value in the heap
- * @template V
- * @param {MaxHeapQueue<number, V>} heap The heap data structure
- * @returns {Tuple<number, V>}
+ * @template K, V
+ * @param {MaxHeapQueue<K, V>} heap The heap data structure
+ * @returns {Tuple<K, V>}
  */
 function max(heap) {
   return heap[0];
@@ -129,8 +129,8 @@ function max(heap) {
 
 /**
  * Returns the height of the heap
- * @template V
- * @param {MaxHeapQueue<number, V>} heap The heap data structure
+ * @template K, V
+ * @param {MaxHeapQueue<K, V>} heap The heap data structure
  * @returns {number}
  */
 function height(heap) {
@@ -139,8 +139,8 @@ function height(heap) {
 
 /**
  * Returns the size of the heap
- * @template V
- * @param {MaxHeapQueue<number, V>} heap The heap data structure
+ * @template K, V
+ * @param {MaxHeapQueue<K, V>} heap The heap data structure
  * @returns {number}
  */
 function size(heap) {

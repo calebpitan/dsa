@@ -1,4 +1,5 @@
-import { ListNode, mergeKLists } from "./merge_k_sorted_lists.js";
+import { ListNode } from "../../data_structures/lists/linked_list.js";
+import { mergeKLists } from "./merge_k_sorted_lists.js";
 
 describe("merge_k_sorted_lists", () => {
   const data = [
@@ -7,13 +8,17 @@ describe("merge_k_sorted_lists", () => {
     [2, 6],
   ];
 
-  /** @type {ListNode[]} */
+  /** @type {ListNode<number>[]} */
   let lists;
 
   beforeEach(() => {
     lists = data.map((list) => {
-      let head = /** @type {ListNode} */ (/** @type {unknown} */ (null));
-      let current = /** @type {ListNode} */ (/** @type {unknown} */ (null));
+      let head = /** @type {ListNode<number>} */ (
+        /** @type {unknown} */ (null)
+      );
+      let current = /** @type {ListNode<number>} */ (
+        /** @type {unknown} */ (null)
+      );
 
       list.forEach((value) => {
         if (!head) head = current = new ListNode(value);
@@ -26,9 +31,9 @@ describe("merge_k_sorted_lists", () => {
 
   it("__smoke_test__", () => {
     expect(Array.isArray(lists)).toBe(true);
-    expect(lists[0].val).toBe(1);
-    expect(lists[0].next?.val).toBe(4);
-    expect(lists[0].next?.next?.val).toBe(5);
+    expect(lists[0].value).toBe(1);
+    expect(lists[0].next?.value).toBe(4);
+    expect(lists[0].next?.next?.value).toBe(5);
   });
 
   it("#mergeKLists - should merge an array of sorted linked list into a single sorted linked list", () => {
@@ -36,10 +41,13 @@ describe("merge_k_sorted_lists", () => {
     let list = mergeKLists(lists);
 
     while (list) {
-      arr.push(list.val);
+      arr.push(list.value);
       list = list.next;
     }
 
     expect(arr).toMatchObject([1, 1, 2, 3, 4, 4, 5, 6]);
+    expect(mergeKLists([])).toBe(null);
+    // @ts-ignore
+    expect(mergeKLists([null])).toBe(null);
   });
 });

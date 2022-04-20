@@ -3,6 +3,7 @@ import { PriorityQueue } from "./priority_queue.js";
 describe("priority_queue", () => {
   describe("PriorityQueue", () => {
     it("#is_empty - should return true when a queue is empty and false when not", () => {
+      /** @type {PriorityQueue<number, undefined>} */
       const pq = new PriorityQueue();
 
       expect(pq.empty()).toBe(true);
@@ -13,6 +14,7 @@ describe("priority_queue", () => {
     });
 
     it("#clear - should clear the queue", () => {
+      /** @type {PriorityQueue<number, undefined>} */
       const pq = new PriorityQueue();
 
       pq.enqueue(15);
@@ -27,7 +29,8 @@ describe("priority_queue", () => {
 
   describe("MaxPriorityQueue", () => {
     it("#enqueue - should put a new priority value in the queue", () => {
-      const pq = new PriorityQueue();
+      /** @type {PriorityQueue<number, undefined>} */
+      const pq = new PriorityQueue(PriorityQueue.MAX);
 
       expect(pq.empty()).toBe(true);
 
@@ -39,7 +42,8 @@ describe("priority_queue", () => {
     });
 
     it("#dequeue - should get the highest priority value from the queue", () => {
-      const pq = new PriorityQueue();
+      /** @type {PriorityQueue<number, undefined>} */
+      const pq = new PriorityQueue(PriorityQueue.MAX);
 
       expect(pq.empty()).toBe(true);
 
@@ -56,8 +60,9 @@ describe("priority_queue", () => {
       expect(pq.empty()).toBe(true);
     });
 
-    it("#peek - takes a look at the element at the root of the heap or rear of the queue", () => {
-      const pq = new PriorityQueue();
+    it("#peek - should take a look at the element at the root of the heap or rear of the queue", () => {
+      /** @type {PriorityQueue<number, undefined>} */
+      const pq = new PriorityQueue(PriorityQueue.MAX);
 
       expect(pq.empty()).toBe(true);
 
@@ -73,8 +78,21 @@ describe("priority_queue", () => {
       expect(pq.empty()).toBe(false);
     });
 
+    it("#peek - should peek at key-value pairs", () => {
+      /** @type {PriorityQueue<number, string>} */
+      const pq = new PriorityQueue(PriorityQueue.MAX);
+
+      pq.enqueue(24, "John");
+      pq.enqueue(10, "Justina");
+      pq.enqueue(76, "Kyrie");
+
+      expect(pq.peek()).toMatchObject([76, "Kyrie"]);
+      expect(pq.peek()).toMatchObject([76, "Kyrie"]);
+    });
+
     it("#enqueue, #dequeue - should enqueue and dequeue key-value pairs", () => {
-      const pq = new PriorityQueue();
+      /** @type {PriorityQueue<number, string>} */
+      const pq = new PriorityQueue(PriorityQueue.MAX);
 
       pq.enqueue(24, "John");
       pq.enqueue(10, "Justina");
@@ -88,6 +106,7 @@ describe("priority_queue", () => {
 
   describe("MinPriorityQueue", () => {
     it("#enqueue - should put a new priority value in the queue", () => {
+      /** @type {PriorityQueue<number, undefined>} */
       const pq = new PriorityQueue(PriorityQueue.MIN);
 
       expect(pq.empty()).toBe(true);
@@ -100,6 +119,7 @@ describe("priority_queue", () => {
     });
 
     it("#dequeue - should get the highest priority value from the queue", () => {
+      /** @type {PriorityQueue<number, undefined>} */
       const pq = new PriorityQueue(PriorityQueue.MIN);
 
       expect(pq.empty()).toBe(true);
@@ -117,7 +137,8 @@ describe("priority_queue", () => {
       expect(pq.empty()).toBe(true);
     });
 
-    it("#peek - takes a look at the element at the root of the heap or rear of the queue", () => {
+    it("#peek - should take a look at the element at the root of the heap or rear of the queue", () => {
+      /** @type {PriorityQueue<number, undefined>} */
       const pq = new PriorityQueue(PriorityQueue.MIN);
 
       expect(pq.empty()).toBe(true);
@@ -134,7 +155,20 @@ describe("priority_queue", () => {
       expect(pq.empty()).toBe(false);
     });
 
+    it("#peek - should peek at key-value pairs", () => {
+      /** @type {PriorityQueue<number, string>} */
+      const pq = new PriorityQueue(PriorityQueue.MIN);
+
+      pq.enqueue(24, "John");
+      pq.enqueue(10, "Justina");
+      pq.enqueue(76, "Kyrie");
+
+      expect(pq.peek()).toMatchObject([10, "Justina"]);
+      expect(pq.peek()).toMatchObject([10, "Justina"]);
+    });
+
     it("#enqueue, #dequeue - should enqueue and dequeue key-value pairs", () => {
+      /** @type {PriorityQueue<number, string>} */
       const pq = new PriorityQueue(PriorityQueue.MIN);
 
       pq.enqueue(24, "John");
