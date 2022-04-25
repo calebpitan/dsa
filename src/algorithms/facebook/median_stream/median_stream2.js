@@ -8,10 +8,10 @@ import { PriorityQueue } from "../../../data_structures/priority_queue/priority_
  */
  function findMedian(arr) {
   // Write your code here
-  /** @type {PriorityQueue<undefined>} */
+  /** @type {PriorityQueue<number, undefined>} */
   const large = new PriorityQueue(PriorityQueue.MAX)
 
-  /** @type {PriorityQueue<undefined>} */
+  /** @type {PriorityQueue<number, undefined>} */
   const small = new PriorityQueue(PriorityQueue.MIN)
 
   const output = [];

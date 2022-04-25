@@ -20,7 +20,7 @@ function mergesort(arr) {
  * @returns {T[]}
  */
 function merge(left, right) {
-  /** @type T[] */
+  /** @type {T[]} */
   const sorted = [];
   let [l, r] = [0, 0];
 
