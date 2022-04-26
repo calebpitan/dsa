@@ -39,9 +39,7 @@ function minLengthSubstring(s, t) {
       }
     }
 
-    if (currentCount <= expectedCount) {
-      right++;
-    }
+    right++;
 
     while (currentCount === expectedCount) {
       length = Math.min(length, right - left);
