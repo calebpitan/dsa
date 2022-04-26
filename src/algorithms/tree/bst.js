@@ -1,20 +1,4 @@
-/** @template T */
-class Node {
-  /**
-   * A tree's node representation
-   * @param {T} value The value that was inserted with this node
-   */
-  constructor(value) {
-    /** @type {?Node<T>} */
-    this.left = null;
-
-    /** @type {?Node<T>} */
-    this.right = null;
-
-    /** @type {T} */
-    this.value = value;
-  }
-}
+import { Node } from "../../data_structures/tree/binary_tree.js";
 
 /**
  * Insert a new node into the tree's root node
