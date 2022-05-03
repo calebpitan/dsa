@@ -1,4 +1,4 @@
-import { countSubarrays } from "./contiguous_subarrays2.js";
+import { countSubarrays } from "./contiguous_subarrays.js";
 
 describe("contiguous_subarrays2", () => {
   const arr = [3, 4, 1, 6, 2]
