@@ -13,7 +13,6 @@ function insertion_sort(arr) {
         arr[j] = current;
         continue;
       }
-      arr[j + 1] = current;
       break;
     }
   }
