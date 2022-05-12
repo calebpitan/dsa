@@ -14,15 +14,37 @@ function longestPalindromeSubstring(s) {
     let left = mid - 1;
     let right = mid + 1;
     let lchar = s.charAt(left);
+    let mchar = s.charAt(mid);
     let rchar = s.charAt(right);
+
+    while (lchar === mchar) {
+      let previousLength = end - start;
+      let currentLength = mid + 1 - left;
+      if (currentLength > previousLength) {
+        start = left;
+        end = mid + 1;
+      }
+      if (left <= 0) break;
+      lchar = s.charAt(--left);
+    }
+
+    while (mchar === rchar) {
+      let previousLength = end - start;
+      let currentLength = right + 1 - mid;
+      if (currentLength > previousLength) {
+        start = mid;
+        end = right + 1;
+      }
+      if (right >= bound) break;
+      rchar = s.charAt(++right);
+    }
 
     while (lchar === rchar) {
       let previousLength = end - start;
       let currentLength = right + 1 - left;
-      mid = right;
       if (currentLength > previousLength) {
-        end = currentLength + left; // simply `right + 1`
-        start = end - currentLength; // simply `left`
+        start = left;
+        end = right + 1;
       }
 
       if (left > 0 && right < bound) {
@@ -33,6 +55,7 @@ function longestPalindromeSubstring(s) {
       break;
     }
   }
+
   return s.substring(start, end);
 }
 
