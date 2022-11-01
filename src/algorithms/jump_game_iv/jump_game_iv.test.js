@@ -1,4 +1,4 @@
-import { minJumps } from "./jump_game_iv";
+import { minJumps } from "./jump_game_iv.js";
 
 describe("jump_game_iv", () => {
   let arr1 = [100, -23, -23, 404, 100, 23, 23, 23, 3, 404];
